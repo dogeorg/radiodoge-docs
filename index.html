@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadioDoge</title>
+    <meta name="description" content="RadioDoge - Send and Receive Dogecoin transactions using radio waves without internet">
+    <meta name="author" content="Dogecoin Foundation">
+    <meta name="generator" content="You!">
+    <link href="https://radio.dogecoin.org/img/radiodoge_logo.png" rel="icon" />
+
+    <!-- X Card to share -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="RadioDoge">
+    <meta name="twitter:site" content="https://radio.dogecoin.org/">
+    <meta name="twitter:description" content="RadioDoge - Send and Receive Dogecoin transactions using radio waves without internet">
+    <meta name="twitter:image" content="https://radio.dogecoin.org/img/radiodoge_logo.png">
+
+    <!-- Include frameworks and font -->    
+    <link href="//fonts.googleapis.com/css2?family=Comic+Neue&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>  
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" href="css/doge.css" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+</head>
+<body>
+
+<!-- Development Warning -->    
+<div class="alert alert-warning" role="alert" style="font-size: 20px; padding: 0px;">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+        <img src="img/under_construction.gif" style="height: 40px"> <i class="fa-solid fa-screwdriver-wrench"></i> RadioDoge website is under development!
+    </marquee>    
+</div>
+
+<!-- Top Menu -->
+<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark" style="margin-top: -20px;">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-tower-cell"></i> RadioDoge</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#financial-freedom"><i class="fa-solid fa-people-arrows"></i> Financial Freedom</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#how-it-works"><i class="fa-solid fa-gears"></i> How it Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#first-dogecoin-transaction"><i class="fa-solid fa-tower-broadcast"></i> First RadioDoge Transaction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#diagrams"><i class="fa-solid fa-diagram-project"></i> Diagrams</a>
+                </li>                   
+                <li class="nav-item">
+                    <a class="nav-link" href="#interactive-map"><i class="fa-solid fa-map-location"></i> Interactive Map</a>
+                </li>                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- First Row RadioDoge, a path to Financial Freedom< -->
+<div class="container mt-4 h-100 p-5 border rounded-3" id="financial-freedom" style="background-color: #fff;">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="border-bottom" style="padding-bottom: 10px; margin-bottom: 10px;"><i class="fa-solid fa-people-arrows" style="color: #ccc;"></i> RadioDoge, a path to Financial Freedom</h2>
+            <p>
+                This kind of exploitation is not a fun, toe-tapping shanty for many people. With 1.7 billion people remaining unbanked globally there are huge portions of humanity who depend on unscrupulous and sometimes threatening people and systems to trade their produce for the goods and services they need to survive.
+
+                The Dogecoin Foundation’s mission is to see Dogecoin become the defacto means for exchanging goods and services globally. Combined with the mantra ‘Do Only Good Everyday’ it is clear that grassroots adoption in emerging economies and as a means of freeing people to enjoy the same financial autonomy that we take for granted is a win-win scenario.                
+            </p>
+        </div>
+        <div class="col-md-6" style="text-align: center;">
+            <img src="img/blog-yamms-shanty.jpg" style="min-width: 100%; min-height: 300px;" alt="Financial Freedom" class="img-fluid rounded-3">
+        </div>
+    </div>
+</div>
+
+<!-- Second Row How it Works?-->
+<div class="container mt-4 h-100 p-5 bg-body-tertiary border rounded-3" style="background-color: #D5DADC;" id="how-it-works">
+    <div class="row">
+        <div class="col-md-6" style="text-align: center;">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item border rounded-3" style="min-width: 100%; min-height: 300px;" src="https://www.youtube.com/embed/s3NWyh8a5t0?si=pRI1xxcgByLFvJMC" title="RadioDoge" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="border-bottom" style="padding-bottom: 10px; margin-bottom: 10px;"><i class="fa-solid fa-gears" style="color: #ccc;"></i> How it Works?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac justo vel justo interdum venenatis. Proin vel sollicitudin lorem.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Third Row First RadioDoge Transaction-->
+<div class="container mt-4 h-100 p-5 border rounded-3" id="first-dogecoin-transaction" style="background-color: #fff;">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="border-bottom" style="padding-bottom: 10px; margin-bottom: 10px;"><i class="fa-solid fa-tower-broadcast" style="color: #ccc;"></i> First RadioDoge Transaction</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac justo vel justo interdum venenatis. Proin vel sollicitudin lorem.</p>
+        </div>
+        <div class="col-md-6" style="text-align: center;">
+            <img src="img/first-transaction.jpeg" alt="First RadioDoge Transaction" class="img-fluid rounded-3"  style="min-width: 100%; min-height: 300px;">
+        </div>
+    </div>
+</div>
+
+<!-- Forth Row Diagrams-->
+<div class="container mt-4 h-100 p-5 bg-body-tertiary border rounded-3" style="background-color: #D5DADC;" id="diagrams">
+    <div class="row">
+        <div class="col-md-6" style="text-align: center;">
+            <img src="img/diagram2.jpg" alt="Diagram 1" class="img-fluid rounded-3"  style="min-width: 100%; min-height: 300px;">
+        </div>        
+        <div class="col-md-6">
+            <h2 class="border-bottom" style="padding-bottom: 10px; margin-bottom: 10px;"><i class="fa-solid fa-diagram-project" style="color: #ccc;"></i> Diagrams</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac justo vel justo interdum venenatis. Proin vel sollicitudin lorem.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Fifth Row RadioDoge Map-->
+<div class="container mt-4 h-100 p-5 rounded-3" id="interactive-map" style="padding-left: 0px !important;padding-right: 0px !important;">
+    <center><h2 class="border-bottom" style="padding-bottom: 10px; margin-bottom: 10px;"><i class="fa-solid fa-map-location" style="color: #ccc;"></i> RadioDoge Interactive Map</h2></center>
+        <div id="toolbar" style="display: none;" >
+          <div class="RadioDoge">
+            <span>RadioDoge</span>
+          </div>
+          <div id="Learn">
+            <div class="list-group list-group-flush">
+                <button type="button" onclick="selectRegionalHub()" class="list-group-item list-group-item-action"><i class="fa-solid fa-tower-cell"></i> Regional Hubs</button>
+                <button type="button" onclick="selectAllCommunityHubs()" class="list-group-item list-group-item-action"><i class="fa-solid fa-tower-broadcast"></i> Community Hubs</button>
+                <button type="button" onclick="selectAllShibeStations()" class="list-group-item list-group-item-action"><i class="fa-solid fa-signal"></i> Shibe Stations</button>
+              </div>            
+          </div>
+        </div>
+        <div id="leafletmap" class="rounded-3" style="z-index: 0; padding: 0px;"></div>
+    </div>
+
+<!-- Include RadioDoge Map JS-->    
+    <script src="js/doge.js"></script>
+
+<!-- Bottom Menu-->    
+    <footer class="container pt-3 mt-4 text-body-secondary border-top" style="margin-bottom: 50px;">
+        © 2023 <a href="https://foundation.dogecoin.com" target="_blank">Dogecoin Foundation</a>
+    </footer>    
+</body>
+</html>
