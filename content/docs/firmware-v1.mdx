@@ -1,0 +1,61 @@
+---
+title: Firmware V1 Installation
+description: Install RadioDoge V1 on Heltec LoRa32
+icon: radio
+---
+
+# Firmware V1 Installation
+
+Firmware V1 is the original RadioDoge firmware with basic LoRa mesh networking capabilities. It's simpler and lighter than V3, suitable for basic node operations.
+
+## Hardware Requirements for V1
+
+| Component | Description | Where to Buy |
+|-----------|-------------|--------------|
+| **Heltec LoRa32 v2 or v3** | ESP32 + LoRa development board with OLED display | [Heltec Official](https://heltec.org/project/wifi-lora-32/), Amazon, AliExpress |
+| **LoRa Antenna** | 915MHz (US) or 868MHz (EU) LoRa antenna with SMA connector | Amazon, DigiKey |
+| **USB Cable** | USB-A to Micro-USB cable | Included with most boards |
+
+## How V1 Works
+
+- **LoRa Communication:** Sends and receives data over LoRa radio waves
+- **Mesh Networking:** Forms a mesh network with other RadioDoge nodes
+- **OLED Display:** Shows node status and basic information
+- **Serial Interface:** Configuration and monitoring via serial connection
+- **Basic Transaction Relay:** Relays Dogecoin transactions through the mesh network
+
+## V1 Installation Steps
+
+### Step 1: Prerequisites
+
+Install Arduino IDE and ESP32 board support (see [Firmware V3](/docs/firmware-v3) for detailed steps).
+
+### Step 2: Clone Repository
+
+```bash
+git clone https://github.com/dogecoinfoundation/radiodoge.git
+cd radiodoge
+git checkout 0.0.1-Beta-1
+cd heltec-firmware
+```
+
+### Step 3: Install Required Libraries
+
+In Arduino IDE, install via **Tools > Manage Libraries**:
+
+- **RadioHead** by Mike McCauley
+- **U8g2** by olikraus (for OLED display)
+
+### Step 4: Configure and Upload
+
+1. Open the firmware sketch from `heltec-firmware` folder
+2. Select board: **Tools > Board > ESP32 Arduino > Heltec WiFi LoRa 32**
+3. Select your COM port
+4. Configure node address and hub address in the code
+5. Upload the firmware
+
+### Step 5: Using V1
+
+- **OLED Display:** Shows node status, address, and connection info
+- **Serial Monitor:** Connect at 115200 baud to view logs and send commands
+- **LoRa Radio:** Automatically connects to nearby hubs and relays transactions

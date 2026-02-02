@@ -1,0 +1,186 @@
+/* RadioDoge Hero - globe, satellites, float animation */
+.radiodoge-hero {
+  background: linear-gradient(135deg, #d3aa00 0%, #ffe42b 100%);
+  color: #151515;
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  margin: 2rem 1rem;
+  box-shadow: 0 4px 15px rgba(211, 170, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.radiodoge-hero .hero-globe {
+  border: 2px solid #ffe70e;
+  border-radius: 50%;
+  height: 380px;
+  width: 380px;
+  left: 15%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.radiodoge-hero .hero-globe svg {
+  animation: radiodoge-rotation 20s linear 0s infinite;
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.radiodoge-hero .hero-globe svg path {
+  stroke: #FFE42B;
+}
+
+@keyframes radiodoge-rotation {
+  from { transform: translateX(0); }
+  to { transform: translateX(-273px); }
+}
+
+.radiodoge-hero .hero-satellite {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffe42b;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffe42b, 0 0 16px #ffe42b;
+  z-index: 1;
+}
+
+.radiodoge-hero .hero-satellite-1 {
+  top: 50%;
+  left: 10%;
+  animation: radiodoge-orbit1 8s linear infinite;
+  transform-origin: 10% 50%;
+}
+
+.radiodoge-hero .hero-satellite-2 {
+  top: 50%;
+  left: 10%;
+  animation: radiodoge-orbit2 10s linear infinite;
+  transform-origin: 10% 50%;
+}
+
+.radiodoge-hero .hero-satellite-3 {
+  top: 50%;
+  left: 10%;
+  animation: radiodoge-orbit3 12s linear infinite;
+  transform-origin: 10% 50%;
+}
+
+.radiodoge-hero .hero-satellite-4 {
+  top: 50%;
+  left: 10%;
+  animation: radiodoge-orbit4 9s linear infinite;
+  transform-origin: 10% 50%;
+}
+
+@keyframes radiodoge-orbit1 {
+  0% { transform: rotate(0deg) translateX(70px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+}
+
+@keyframes radiodoge-orbit2 {
+  0% { transform: rotate(90deg) translateX(85px) rotate(-90deg); }
+  100% { transform: rotate(450deg) translateX(85px) rotate(-450deg); }
+}
+
+@keyframes radiodoge-orbit3 {
+  0% { transform: rotate(180deg) translateX(100px) rotate(-180deg); }
+  100% { transform: rotate(540deg) translateX(100px) rotate(-540deg); }
+}
+
+@keyframes radiodoge-orbit4 {
+  0% { transform: rotate(270deg) translateX(80px) rotate(-270deg); }
+  100% { transform: rotate(630deg) translateX(80px) rotate(-630deg); }
+}
+
+.radiodoge-hero .hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radiodoge-hero .hero-text {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+}
+
+.radiodoge-hero .hero-title {
+  font-size: 3.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.radiodoge-hero .hero-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+.radiodoge-hero .hero-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.radiodoge-hero .hero-buttons a {
+  padding: 0.6rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+.radiodoge-hero .hero-image-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+}
+
+.radiodoge-hero .hero-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 420px;
+  min-height: 320px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  transform: rotate(5deg);
+  animation: radiodoge-float 3s ease-in-out infinite;
+}
+
+@keyframes radiodoge-float {
+  0%, 100% { transform: rotate(5deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-12px); }
+}
+
+@media (max-width: 768px) {
+  .radiodoge-hero .hero-title {
+    font-size: 2.25rem;
+  }
+  .radiodoge-hero .hero-subtitle {
+    font-size: 1.15rem;
+  }
+  .radiodoge-hero .hero-img {
+    max-height: 320px;
+    min-height: 240px;
+  }
+  .radiodoge-hero .hero-globe {
+    height: 280px;
+    width: 280px;
+  }
+}

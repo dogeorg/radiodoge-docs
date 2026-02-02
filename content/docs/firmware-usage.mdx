@@ -1,0 +1,59 @@
+---
+title: Firmware Usage Guide
+description: Access and use the RadioDoge web interface
+icon: settings_applications
+---
+
+# Firmware Usage Guide
+
+## Accessing the Built-in Web Interface
+
+The RadioDoge Heltec firmware includes a built-in web interface. Here's how to access it:
+
+### Step 1: Connect to the Device
+
+1. The device creates a WiFi access point (AP mode)
+2. Look for a WiFi network named `RadioDoge-XXXX` or `ESP32-XXXX`
+3. Connect from your computer or mobile device
+4. Default password is typically `radiodoge` (or check the OLED screen)
+
+### Step 2: Open the Web Interface
+
+1. Open a web browser on the connected device
+2. Navigate to: **http://192.168.4.1**
+3. You should see the RadioDoge web interface homepage
+
+> **Note:** If `192.168.4.1` doesn't work, check the OLED display for the IP address, or check your network gateway settings.
+
+## Web Interface Sections
+
+### Home/Dashboard
+
+- **Device Status:** Node address, connection status, system info
+- **Network Info:** Connected hub, signal strength, topology
+- **Quick Actions:** Send transactions, check balance
+
+### Configuration Menu
+
+- **Node Configuration:** Node address, hub address, LoRa frequency, transmit power
+- **WiFi Settings:** AP name (SSID), password, optional connection to existing WiFi
+- **Display Settings:** OLED brightness, timeout, preferences
+
+### Wallet Management
+
+- **Address Book:** Add/edit/delete addresses, QR codes, import/export
+- **Wallet Setup:** Generate wallets (LibDogecoin), import private keys (encrypted), backup
+- **Security:** Encryption PIN, key storage encryption, permissions
+
+### Transaction Operations
+
+- **Send Transaction:** Select source/destination, amount, confirm, view TXID
+- **Receive:** Generate address, show QR code, monitor incoming
+- **Transaction History:** Sent/received with TXIDs, status, export
+
+### Network Operations
+
+- **Hub Discovery:** Scan for hubs, view addresses and signal strength
+- **Connection Status:** Current hub, signal quality, topology, statistics
+
+For programmatic control, see the [API Documentation](/docs/api-documentation).

@@ -1,0 +1,21 @@
+---
+title: How It Works
+description: RadioDoge network architecture and data flow
+icon: hub
+---
+
+# How It Works?
+
+![How it Works](/img/how-it-works.jpg)
+
+**RadioDoge** is a decentralized communication and data transmission network that relies on a combination of radio frequency technologies and blockchain.
+
+1. **Blockchain on the Internet:** RadioDoge operates within a blockchain network that can be accessed via the regular internet.
+2. **Main Hubs (A):** These are primary network access points, located in various regions such as North America and South America. These hubs have direct internet connectivity, with their main access via services like Starlink, making them resilient to internet outages.
+3. **Backhaul Connections:** To reach these main hubs, there is a network of backhaul connections using radio frequency technologies. This includes HF (High Frequency)/shortwave, LoRa (Long Range), or VHF (Very High Frequency) point-to-point links.
+4. **Regional Hubs (B):** These hubs are connected to the main hubs (A) via the backhaul network. They host Simplified Payment Verification (SPV) and data libraries (Lib) and serve as intermediaries for areas without direct internet connectivity.
+5. **Local and Short-Range Connectivity:** Community hubs and ShibeStation endpoints can connect to regional hubs using technologies like LoRa, VHF/UHF, WiFi, PSK, and AX.25.
+6. **Data Protocol:** Regardless of the method used for the radio transmission (LoRa, HF, FM), the data protocol remains consistent. LoRa and VARA HF are "containers" or pipes for the data.
+7. **Addressing:** The addressing scheme is hierarchical. Main hubs (A) have addresses like 10.0.1 in North America. Regional hubs (B) have addresses like 10.1.1. Community hubs and ShibeStation endpoints have their own addresses based on their location (e.g., 10.2.58).
+
+In summary, **RadioDoge** is a decentralized communication network that uses blockchain technology and a combination of radio frequency technologies to ensure connectivity in regions with limited or no internet access.
