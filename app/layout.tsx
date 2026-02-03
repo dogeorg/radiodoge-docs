@@ -10,11 +10,17 @@ const comicNeue = Comic_Neue({
 
 const baseUrl = 'https://radio.dogecoin.org';
 
+const siteTitle = 'RadioÐoge - Send and Receive Dogecoin transactions using radio waves. Such Learn!';
+const siteDescription =
+  'RadioDoge - Send and Receive Dogecoin transactions using radio waves without internet. Blockchain-like mesh network, LoRa technology, secure cold storage, web interface, and comprehensive API. Complete guide to installation, usage, and development. Much features, very wow!';
+const ogTitle = 'RadioDoge - Send Dogecoin via Radio Waves';
+const ogDescription =
+  'RadioDoge enables Dogecoin transactions using radio waves without internet. Blockchain-like mesh network, LoRa technology, secure cold storage, web interface, and comprehensive REST API. Perfect for remote areas and financial inclusion.';
+
 export const metadata = {
   metadataBase: new URL(baseUrl),
-  title: 'RadioÐoge - Send and Receive Dogecoin transactions using radio waves. Such Learn!',
-  description:
-    'RadioDoge - Send and Receive Dogecoin transactions using radio waves without internet. Blockchain-like mesh network, LoRa technology, secure cold storage, web interface, and comprehensive API. Complete guide to installation, usage, and development. Much features, very wow!',
+  title: siteTitle,
+  description: siteDescription,
   keywords: [
     'radiodoge',
     'dogecoin',
@@ -44,16 +50,15 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'RadioDoge',
-    title: 'RadioDoge - Send Dogecoin via Radio Waves',
-    description:
-      'RadioDoge enables Dogecoin transactions using radio waves without internet. Blockchain-like mesh network, LoRa technology, secure cold storage, web interface, and comprehensive REST API. Perfect for remote areas and financial inclusion.',
+    title: ogTitle,
+    description: ogDescription,
     url: baseUrl,
     images: [
       {
         url: '/img/social-card.png',
         width: 1200,
         height: 630,
-        alt: 'RadioDoge - Send Dogecoin via Radio Waves',
+        alt: ogTitle,
       },
     ],
     locale: 'en_US',
@@ -62,11 +67,10 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@dogecoin',
     creator: '@dogecoin',
-    title: 'RadioDoge - Send Dogecoin via Radio Waves',
-    description:
-      'Send and receive Dogecoin transactions using radio waves without internet. Blockchain-like mesh network, LoRa technology, secure cold storage, and comprehensive API.',
+    title: ogTitle,
+    description: ogDescription,
     images: ['/img/social-card.png'],
-    imagesAlt: 'RadioDoge - Send Dogecoin via Radio Waves',
+    imagesAlt: ogTitle,
   },
   alternates: { canonical: baseUrl },
   icons: {
@@ -97,7 +101,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
         />
       </head>
       <body className="flex flex-col min-h-screen">
-        <RootProvider search={{ enabled: true }}>
+        <RootProvider search={{ enabled: true, options: { type: 'static' } }}>
           <TopNav />
           {children}
         </RootProvider>
