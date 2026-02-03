@@ -15,7 +15,7 @@
 *.tsbuildinfo
 
 # misc
-.DS_Store
+**/.DS_Store
 *.pem
 /.pnp
 .pnp.js
