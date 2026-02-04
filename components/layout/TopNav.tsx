@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { SIDEBAR_TRIGGER_SLOT_ID } from './SidebarTriggerPortal';
 
 export function TopNav() {
   return (
     <nav className="radiodoge-top-nav">
       <div className="radiodoge-top-nav-container">
+        <div id={SIDEBAR_TRIGGER_SLOT_ID} className="radiodoge-top-nav-menu-slot" />
         <div className="radiodoge-top-nav-logo">
           <Link href="/" className="radiodoge-top-nav-logo-link">
             <Image
@@ -25,20 +27,20 @@ export function TopNav() {
             target="_blank"
             rel="noopener noreferrer"
             className="radiodoge-top-nav-link"
-            title="View Source Code"
-            aria-label="View Source Code on GitHub"
+            title="View source code"
+            aria-label="View source on GitHub"
           >
-            <img src="/img/icons/github-icon.svg" alt="" width={24} height={24} aria-hidden />
+            <span className="material-icons">code</span>
           </a>
           <a
             href="https://github.com/dogeorg/radiodoge-docs"
             target="_blank"
             rel="noopener noreferrer"
             className="radiodoge-top-nav-link"
-            title="Edit This Site"
-            aria-label="Edit documentation on GitHub"
+            title="Edit this site"
+            aria-label="Edit documentation"
           >
-            <img src="/img/icons/edit-icon.svg" alt="" width={24} height={24} aria-hidden />
+            <span className="material-icons">edit</span>
           </a>
         </div>
       </div>

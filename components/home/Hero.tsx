@@ -3,21 +3,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import '@/styles/hero.css';
-import { HERO_WORLD_PATH_D } from '@/lib/hero-world-path';
 
 export function Hero() {
   return (
     <section className="radiodoge-hero">
       <div className="hero-globe" aria-hidden>
-        <svg width="547" height="70" viewBox="0 0 1094 140" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path id="world-path" d={HERO_WORLD_PATH_D} stroke="#FFE42B" strokeWidth="2" fill="none" fillRule="evenodd" />
-          </defs>
-          <g>
-            <use href="#world-path" />
-            <use href="#world-path" transform="translate(547, 0)" />
-          </g>
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/img/hero-world.svg" alt="" className="hero-globe-img" width={547} height={70} />
       </div>
       <div className="hero-satellite hero-satellite-1" aria-hidden />
       <div className="hero-satellite hero-satellite-2" aria-hidden />

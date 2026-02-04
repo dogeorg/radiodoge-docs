@@ -26,15 +26,11 @@
   z-index: 0;
 }
 
-.radiodoge-hero .hero-globe svg {
+.radiodoge-hero .hero-globe img.hero-globe-img {
   animation: radiodoge-rotation 20s linear 0s infinite;
   display: block;
   height: 100%;
   width: auto;
-}
-
-.radiodoge-hero .hero-globe svg path {
-  stroke: #FFE42B;
 }
 
 @keyframes radiodoge-rotation {

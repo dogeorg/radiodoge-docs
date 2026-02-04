@@ -97,6 +97,43 @@ body:has(.radiodoge-top-nav) {
   max-width: 100%;
   gap: 1rem;
 }
+
+.radiodoge-top-nav-menu-slot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+}
+
+@media (max-width: 767px) {
+  #sidebar-trigger-slot,
+  .radiodoge-top-nav-menu-slot {
+    display: none !important;
+  }
+}
+
+.radiodoge-top-nav-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: var(--fd-foreground-secondary, #e5e5e5);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.radiodoge-top-nav-menu-trigger:hover {
+  color: #FFE42B;
+  background-color: var(--fd-background-tertiary, #2f2f2f);
+}
+
+.radiodoge-top-nav-menu-trigger .material-icons {
+  font-size: 1.5rem;
+}
+
 .radiodoge-top-nav-logo {
   display: flex;
   align-items: center;
@@ -128,23 +165,20 @@ body:has(.radiodoge-top-nav) {
 .radiodoge-top-nav-link {
   color: var(--fd-foreground-secondary, #e5e5e5);
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 8px;
   transition: color 0.2s ease, background-color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* GitHub and Edit icons: light on dark navbar (SVG as img uses fill; force visibility) */
-.radiodoge-top-nav-link img {
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-}
+
 .radiodoge-top-nav-link:hover {
   color: #FFE42B;
   background-color: var(--fd-background-tertiary, #2f2f2f);
 }
-.radiodoge-top-nav-link:hover img {
-  opacity: 1;
+
+.radiodoge-top-nav-link .material-icons {
+  font-size: 1.5rem;
 }
 
 /* Get Started section below hero */
@@ -193,6 +227,51 @@ body:has(.radiodoge-top-nav) {
   flex-shrink: 0;
   margin-top: auto;
 }
+
+/* Sidebar footer row: Dogecoin Foundation logo on the left of theme toggle */
+#nd-sidebar > div[class*="border-t"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#nd-sidebar > div[class*="border-t"] > div.flex.items-center:first-child {
+  order: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+#nd-sidebar > div[class*="border-t"] > a.radiodoge-sidebar-foundation-link {
+  order: 1;
+  flex-shrink: 0;
+}
+
+.radiodoge-sidebar-foundation-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.radiodoge-sidebar-foundation-link:hover {
+  opacity: 0.85;
+}
+
+.radiodoge-sidebar-foundation-logo {
+  width: 5rem;
+  height: auto;
+  max-height: 2.5rem;
+  object-fit: contain;
+  display: block;
+}
+
+.dark .radiodoge-sidebar-foundation-logo {
+  filter: brightness(0) invert(1);
+}
+
 @media (min-width: 768px) {
   [data-sidebar-placeholder] {
     min-width: var(--fd-sidebar-width);
