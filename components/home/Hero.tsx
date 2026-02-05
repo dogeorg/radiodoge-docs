@@ -26,17 +26,19 @@ export function Hero() {
           <div className="hero-buttons">
             <Link
               href="/docs"
-              className="inline-flex items-center justify-center rounded-md bg-[#151515] px-5 py-2.5 text-sm font-semibold text-[#ffe42b] hover:bg-[#252525]"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#151515] px-5 py-2.5 text-sm font-semibold text-[#ffe42b] hover:bg-[#252525]"
             >
+              <span className="material-icons" aria-hidden>rocket_launch</span>
               Get Started
             </Link>
             <Link
               href="https://github.com/dogecoinfoundation/radiodoge"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md border-2 border-[#151515] bg-transparent px-5 py-2.5 text-sm font-semibold text-[#151515] hover:bg-[#151515]/10"
+              className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-[#151515] bg-transparent px-5 py-2.5 text-sm font-semibold text-[#151515] hover:bg-[#151515]/10"
             >
-              View Source
+              <span className="material-icons" aria-hidden>code</span>
+              Get Code
             </Link>
           </div>
         </div>
