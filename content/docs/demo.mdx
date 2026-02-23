@@ -1,0 +1,80 @@
+---
+title: RadioDoge Demo
+description: Step-by-step demo of a RadioDoge transaction
+icon: play_circle
+---
+
+This demo shows the complete flow from hub setup to transaction confirmation using RadioDoge pre-release 10.0.1.
+
+## Setting Up the Hub
+
+![Demo 01](/img/demo/demo-01.jpg)
+
+We set up the hub on a Windows PC in a friend's office and put the Hub dongle with a decent antenna on a shelf indoors.
+
+## Remote Node Setup
+
+![Demo 02](/img/demo/demo-02.jpg)
+
+We took the Dogecoin Node setup to a park far away and placed it on top of an overturned box.
+
+## Solar Power
+
+![Demo 03](/img/demo/demo-03.jpg)
+
+Solar panel powering the whole setup (with a USB PD battery pack charged by the solar panel), running fully disconnected.
+
+## System Initialization
+
+![Demo 04](/img/demo/demo-04.jpg)
+
+Starting up RadioDoge. It runs tests to ensure LibDogecoin, LoRa, and Radio are working.
+
+## Hub Discovery
+
+![Demo 05](/img/demo/demo-05.jpg)
+
+After hitting enter and waiting at the menu, a hub broadcast from the office is received and shown on the OLED of the LoRa dongle.
+
+## Hub Address Display
+
+![Demo 06](/img/demo/demo-06.jpg)
+
+The terminal shows an active hub in the area at Address **10.0.1**.
+
+## Selecting Source and Destination
+
+![Demo 07](/img/demo/demo-07.jpg)  
+![Demo 08](/img/demo/demo-08.jpg)
+
+Using the address book, we choose source address "DGYr..." (entry #3) and destination "D6JQ..." (entry #1). The node forms transactions with LibDogecoin—the hub never sees the private key.
+
+## Registering with Hub & Ready to Send
+
+![Demo 10](/img/demo/demo-10.jpg)  
+![Demo 11](/img/demo/demo-11.jpg)
+
+We register the node and balance address with the hub (encrypted; hub does not store private keys). Then we select "send dogecoin."
+
+## Sending Transaction
+
+![Demo 12](/img/demo/demo-12.jpg)
+
+We send 12 DOGE. The raw transaction is split into burst packets with forward error correction. The hub sends an ACK when received.
+
+## Hub Processing & Confirmation
+
+![Demo 13](/img/demo/demo-13.jpg)  
+![Demo 14](/img/demo/demo-14.jpg)
+
+**At the office:** The hub (LibDogecoin SPV) transmits the transaction to the blockchain and sends a response.
+
+**At the remote node:** We receive confirmation and the TXID from 10.0.1.
+
+**Don't trust, verify!** Example TX: [4d5c88d3...](https://chain.so/tx/DOGE/4d5c88d3b791df1ffa445034fbda4d8f0dec0efed445a38e64e64e6ed2d4a15f)
+
+## Summary
+
+![Demo 15](/img/demo/demo-15.jpg)
+
+This demonstration shows the complete RadioDoge transaction flow from node setup to transaction confirmation, without traditional internet infrastructure.

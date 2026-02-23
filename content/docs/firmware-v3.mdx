@@ -1,0 +1,50 @@
+---
+title: Firmware V3 Installation
+description: Install RadioDoge V3 with web interface and wallet
+icon: radio
+---
+
+Firmware V3 is the advanced version with a built-in web interface, wallet management, and enhanced features. It's recommended for most users.
+
+## Hardware Requirements for V3
+
+| Component | Description | Where to Buy |
+|-----------|-------------|--------------|
+| **Heltec LoRa32 v3** | ESP32 + LoRa development board (V3 recommended) | [Heltec Official](https://heltec.org/project/wifi-lora-32/), Amazon, AliExpress |
+| **LoRa Antenna** | 915MHz (US) or 868MHz (EU) with SMA connector | Amazon, DigiKey, Mouser |
+| **USB Cable** | USB-A to Micro-USB or USB-C | Any electronics store |
+| **Power Supply (Optional)** | 5V USB power adapter or battery pack | Amazon |
+| **Enclosure (Optional)** | Weatherproof enclosure for outdoor use | Amazon |
+
+## Key V3 Features
+
+- **Blockchain-Like Mesh Network:** Broadcast transactions; mesh propagation; gateway discovery
+- **Built-in Web Interface:** Access at `http://192.168.4.1`
+- **WiFi Access Point:** Default password: `radiodoge`
+- **LibDogecoin Integration:** Secure wallet generation and transaction signing
+- **Cold Storage:** AES-256 encrypted wallet storage with PIN
+- **REST API:** Full programmatic control (see [API Documentation](/docs/api-documentation))
+
+## Installation Overview
+
+1. **Install Arduino IDE** from [arduino.cc](https://www.arduino.cc/en/software)
+2. **Add ESP32 Board URL:** `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+3. **Install ESP32** via Tools > Board > Boards Manager
+4. **Install USB drivers** (CP210x from Silicon Labs) if needed
+5. **Clone and open sketch:**
+
+```bash
+git clone https://github.com/dogecoinfoundation/radiodoge.git
+cd radiodoge
+git checkout 0.0.1-Beta-1
+cd heltec-firmware-v3
+# Rename folder to heltec-firmware (Arduino IDE requirement)
+# Windows: ren heltec-firmware-v3 heltec-firmware
+# Linux/macOS: mv heltec-firmware-v3 heltec-firmware
+```
+
+6. **Prepare LibDogecoin WASM:** Use pre-built `libdogecoin.js` in the `data` folder, or build from [libdogecoin](https://github.com/dogecoinfoundation/libdogecoin). Copy to `heltec-firmware/data/libdogecoin.js`.
+7. **Select board:** Heltec WiFi LoRa 32
+8. **Upload firmware** and **Upload filesystem** (Sketch > Upload Filesystem Image) for the web UI and WASM.
+
+For full step-by-step instructions (Windows, macOS, Linux), see the [RadioDoge repository](https://github.com/dogecoinfoundation/radiodoge).

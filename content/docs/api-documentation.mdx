@@ -1,0 +1,112 @@
+---
+title: Firmware V3 API Documentation
+description: REST API for RadioDoge V3 programmatic control
+icon: api
+---
+
+## REST API Overview
+
+Firmware V3 provides a comprehensive REST API. All endpoints return JSON. Base URL: **http://192.168.4.1/api/**
+
+> **Authentication:** Connection to the RadioDoge WiFi network is required.
+
+## Broadcast API (Recommended)
+
+### Broadcast Dogecoin Transaction
+
+**Endpoint:** `POST /api/broadcast`
+
+Broadcast a Dogecoin transaction to the entire RadioDoge network. No internet required on your device.
+
+```bash
+curl -X POST "http://192.168.4.1/api/broadcast" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "type=transaction&priority=normal&message=0100000001..."
+```
+
+**Parameters:**
+
+- `type`: `transaction` (required)
+- `priority`: `normal`, `high`, or `urgent` (optional)
+- `message`: Signed Dogecoin transaction hex (required)
+
+### Broadcast General Message
+
+```bash
+curl -X POST "http://192.168.4.1/api/broadcast" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "type=announcement&priority=normal&message=Network update"
+```
+
+## Communication API
+
+### Send Direct Message
+
+**Endpoint:** `POST /api/message`
+
+- `address`: Target address (e.g., "10.1.2")
+- `type`: `text`, `data`, or `command`
+- `text`: Message content
+
+### Send Direct Transaction (LoRa)
+
+**Endpoint:** `POST /api/transaction`
+
+- `address`: Target address
+- `type`: `signed`, `raw`, or `utxo`
+- `data`: Transaction hex string
+
+### Send to Internet Gateway
+
+**Endpoint:** `POST /api/transaction/send`
+
+- `transaction`: Signed transaction hex string
+
+### Ping
+
+**Endpoint:** `GET /api/ping` or `POST /api/ping`
+
+Parameters: `region`, `community`, `node` (0–255 each); optional `broadcast=1`
+
+## Device Status & Configuration
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/status` | GET | Device status and configuration |
+| `/api/address` | GET/POST | Get or set LoRa address (region, community, node) |
+| `/api/wifi` | GET | WiFi status |
+| `/api/wifi/connect` | POST | Connect to internet WiFi (ssid, password) |
+| `/api/wifi/disconnect` | POST | Disconnect from WiFi |
+| `/api/wifi/clear` | POST | Clear stored WiFi credentials |
+
+## Password Management
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/password/change` | POST | Change AP password (8–32 chars, letters + numbers) |
+| `/api/password/reset` | POST | Reset password to default |
+| `/api/password/status` | GET | Password status |
+
+## Gateway Management
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/gateway/status` | GET | Gateway configuration and status |
+| `/api/gateway/save` | POST | Save gateway (type, ip, port, username, password, endpoint) |
+| `/api/gateway/config` | GET/POST | Get or set gateway config |
+| `/api/gateway/test` | POST | Test gateway connection |
+| `/api/gateway/clear` | POST | Clear gateway config |
+| `/api/gateway/debug` | GET | Gateway debug info |
+| `/api/gateway/load` | GET | Load gateway config |
+
+Gateway `type`: `core`, `dogebox`, `wallet`, or `custom`.
+
+## JSON-RPC
+
+**Endpoint:** `POST /api/jsonrpc`
+
+Send JSON-RPC requests to Dogecoin Core nodes. Parameters: `transaction`, `url`, `rpcuser`, `rpcpass`.
+
+---
+
+For full request/response examples and additional endpoints, refer to the [RadioDoge repository](https://github.com/dogecoinfoundation/radiodoge).

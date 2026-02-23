@@ -1,0 +1,283 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+@import 'leaflet/dist/leaflet.css';
+
+/* Material Icons in sidebar: match Fumadocs icon size (1rem) */
+#nd-sidebar .material-icons,
+[data-sidebar-placeholder] .material-icons {
+  font-size: 1rem !important;
+  width: 1rem;
+  height: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sidebar section titles (non-clickable): no icon, smaller font */
+.sidebar-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fd-muted-foreground, #9a9a9a);
+  margin: 1.5rem 0 0.375rem 0;
+  padding: 0 0.5rem;
+  line-height: 1.4;
+  pointer-events: none;
+  user-select: none;
+}
+.sidebar-section-title:first-child {
+  margin-top: 0;
+}
+#nd-sidebar .sidebar-section-title,
+[data-sidebar-placeholder] .sidebar-section-title {
+  display: block;
+}
+
+/* Hide the "RadioDoge" title link above the search in the sidebar (redundant) */
+#nd-sidebar > div:first-child > div:first-child > a:first-child,
+#nd-sidebar-mobile > div:first-child > div:first-child > a:first-child {
+  display: none;
+}
+
+/* RadioDoge: yellow/gold titles like original */
+/* Light mode: darker gold for contrast on white */
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: #996600;
+}
+/* Dark mode: yellow like original RadioDoge */
+.dark main h1,
+.dark main h2,
+.dark main h3,
+.dark main h4,
+.dark main h5,
+.dark main h6 {
+  color: #FFE42B;
+}
+/* Hero title stays dark on gold background (both themes) */
+.radiodoge-hero .hero-title,
+.radiodoge-hero h1 {
+  color: #151515 !important;
+}
+
+/* RadioDoge top bar (original-style) - fixed so it never disappears */
+.radiodoge-top-nav {
+  background-color: var(--fd-background-secondary, #252525);
+  border-bottom: 2px solid #ffc107;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+/* Spacer and Fumadocs banner height so content and sidebar start below the fixed top bar */
+body:has(.radiodoge-top-nav) {
+  padding-top: 4.5rem;
+  --fd-banner-height: 4.5rem;
+}
+/* Mobile sidebar drawer: start below the fixed top bar (75px) */
+#nd-sidebar-mobile {
+  top: 75px !important;
+  height: calc(100vh - 75px) !important;
+  max-height: calc(100dvh - 75px);
+}
+.radiodoge-top-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  gap: 1rem;
+}
+
+.radiodoge-top-nav-menu-slot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+}
+
+@media (max-width: 767px) {
+  #sidebar-trigger-slot,
+  .radiodoge-top-nav-menu-slot {
+    display: none !important;
+  }
+}
+
+.radiodoge-top-nav-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: var(--fd-foreground-secondary, #e5e5e5);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.radiodoge-top-nav-menu-trigger:hover {
+  color: #FFE42B;
+  background-color: var(--fd-background-tertiary, #2f2f2f);
+}
+
+.radiodoge-top-nav-menu-trigger .material-icons {
+  font-size: 1.5rem;
+}
+
+.radiodoge-top-nav-logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.radiodoge-top-nav-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.radiodoge-logo-icon {
+  height: 40px;
+  width: auto;
+}
+.radiodoge-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFE42B;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.radiodoge-top-nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.radiodoge-top-nav-link {
+  color: var(--fd-foreground-secondary, #e5e5e5);
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radiodoge-top-nav-link:hover {
+  color: #FFE42B;
+  background-color: var(--fd-background-tertiary, #2f2f2f);
+}
+
+.radiodoge-top-nav-link .material-icons {
+  font-size: 1.5rem;
+}
+
+/* Get Started section below hero */
+.get-started-section {
+  padding: 3rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.get-started-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.get-started-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+.get-started-section p {
+  line-height: 1.7;
+  margin: 0;
+}
+/* Light mode: black link; dark mode: yellow */
+.get-started-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #151515;
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.2s;
+}
+.get-started-link:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+.dark .get-started-link {
+  color: #FFE42B;
+}
+
+/* Sidebar: always on left (placeholder keeps space), theme toggle sticky at bottom — desktop only */
+#nd-sidebar {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+#nd-sidebar > div:last-of-type[class*="border-t"] {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* Sidebar footer row: Dogecoin Foundation logo on the left of theme toggle */
+#nd-sidebar > div[class*="border-t"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#nd-sidebar > div[class*="border-t"] > div.flex.items-center:first-child {
+  order: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+#nd-sidebar > div[class*="border-t"] > a.radiodoge-sidebar-foundation-link {
+  order: 1;
+  flex-shrink: 0;
+}
+
+.radiodoge-sidebar-foundation-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.radiodoge-sidebar-foundation-link:hover {
+  opacity: 0.85;
+}
+
+.radiodoge-sidebar-foundation-logo {
+  width: 5rem;
+  height: auto;
+  max-height: 2.5rem;
+  object-fit: contain;
+  display: block;
+}
+
+.dark .radiodoge-sidebar-foundation-logo {
+  filter: brightness(0) invert(1);
+}
+
+@media (min-width: 768px) {
+  [data-sidebar-placeholder] {
+    min-width: var(--fd-sidebar-width);
+    --fd-sidebar-width: 268px;
+  }
+  #nd-docs-layout {
+    --fd-sidebar-col: var(--fd-sidebar-width);
+  }
+}

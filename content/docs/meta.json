@@ -1,0 +1,24 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "---[rocket_launch]Getting Started---",
+    "getting-started",
+    "financial-inclusion",
+    "---[build]Setup & Installation---",
+    "installation",
+    "firmware-v1",
+    "firmware-v3",
+    "firmware-usage",
+    "api-documentation",
+    "usage",
+    "---[hub]Explain---",
+    "how-it-works",
+    "first-transaction",
+    "demo",
+    "interactive-map",
+    "status",
+    "---[code]Resources---",
+    "[code][GitHub Repository](https://github.com/dogecoinfoundation/radiodoge)",
+    "[edit][Edit Documentation](https://github.com/dogeorg/radiodoge-docs)"
+  ]
+}
